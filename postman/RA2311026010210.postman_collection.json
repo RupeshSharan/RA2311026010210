@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "RA2311026010210 Notification API",
+    "description": "Postman collection for testing the notification backend endpoints locally.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": ["{{baseUrl}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Fetch Notifications",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/notifications",
+          "host": ["{{baseUrl}}"],
+          "path": ["notifications"]
+        }
+      }
+    },
+    {
+      "name": "Create Notification",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();",
+              "if (response.notification && response.notification.id) {",
+              "  pm.environment.set('notificationId', response.notification.id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 1042,\n  \"type\": \"Placement\",\n  \"message\": \"Placement registration opens today.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/notifications",
+          "host": ["{{baseUrl}}"],
+          "path": ["notifications"]
+        }
+      }
+    },
+    {
+      "name": "Mark One Notification As Read",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"{{notificationId}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/notifications/read",
+          "host": ["{{baseUrl}}"],
+          "path": ["notifications", "read"]
+        }
+      }
+    },
+    {
+      "name": "Mark All Notifications As Read",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/notifications/read",
+          "host": ["{{baseUrl}}"],
+          "path": ["notifications", "read"]
+        }
+      }
+    }
+  ]
+}

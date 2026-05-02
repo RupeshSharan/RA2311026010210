@@ -105,6 +105,29 @@ Available endpoints:
 
 For a production version, basic validation and error handling can be added in the controllers so invalid requests return clear responses.
 
+## Postman Testing
+
+Postman files are included in the `postman` folder:
+
+- `RA2311026010210.postman_collection.json`
+- `local.postman_environment.json`
+
+Import both files into Postman, select the `RA2311026010210 Local` environment, and run the notification backend:
+
+```bash
+npm run notification
+```
+
+Recommended screenshot order:
+
+1. `Health Check`
+2. `Fetch Notifications`
+3. `Create Notification`
+4. `Mark One Notification As Read`
+5. `Mark All Notifications As Read`
+
+The `Create Notification` request saves the created notification ID into the environment, so `Mark One Notification As Read` can use it automatically.
+
 ## Logging Middleware
 
 The logging middleware is a common `Log` function used by the project. It sends logs to the remote evaluation server through an API call, but it does not hardcode the token:
