@@ -1,0 +1,16 @@
+{
+  "name": "ra2311026010210",
+  "version": "1.0.0",
+  "description": "Logging middleware, vehicle maintenance scheduler, and notification system design.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "scheduler": "node vehicle_maintenance_scheduler/src/index.js",
+    "notification": "node notification_app_be/src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.3"
+  }
+}
