@@ -1,6 +1,6 @@
 # RA2311026010210
 
-This repository brings together the three parts of the submission: a reusable logging middleware, a vehicle maintenance scheduler, and a notification backend/design write-up. I kept the project small and runnable so that it can be checked quickly without needing private API keys.
+This repository brings together the three parts of the submission: a reusable logging middleware, a vehicle maintenance scheduler, and a notification backend/design write-up. I kept the project small, readable, and runnable so a reviewer can understand the flow without hunting through the code.
 
 The repo is submission-ready even without private keys because it uses `.env.example` for configuration and fallback sample data for local testing.
 
@@ -17,6 +17,13 @@ The repo is submission-ready even without private keys because it uses `.env.exa
 - Knapsack-based optimization for vehicle maintenance scheduling.
 - Environment-based configuration through `.env.example`.
 - API testing proof with a Postman collection and screenshots.
+
+## Why This Is Review-Ready
+
+- The project runs locally even without private API keys.
+- API behavior is backed by Postman screenshots, not only written explanation.
+- Sensitive values are kept out of source code through environment variables.
+- The backend follows a simple route-controller-service structure that can grow later.
 
 ## Repository Structure
 
@@ -40,6 +47,7 @@ RA2311026010210/
 |   |   |-- services/
 |   |   `-- index.js
 |   `-- screenshots/
+|       |-- README.md
 |       |-- 01_get_notifications.png
 |       |-- 02_create_notification.png
 |       |-- 03_mark_single_read.png
@@ -50,6 +58,7 @@ RA2311026010210/
 |   |-- RA2311026010210.postman_collection.json
 |   `-- local.postman_environment.json
 |-- notification_system_design.md
+|-- postman_screenshot_guide.md
 |-- package.json
 |-- .env.example
 `-- README.md

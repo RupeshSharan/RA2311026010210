@@ -153,7 +153,7 @@ Request:
 POST http://localhost:3000/notifications/read
 ```
 
-Expected response should show updated notifications with `isRead: true`.
+Expected response should show updated notification data with `isRead: true`. This works as verification because the response returns the updated records after the read action.
 
 Save as `05_verify_notifications_after_read.png`.
 
