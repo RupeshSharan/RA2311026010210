@@ -8,7 +8,7 @@ The notification service starts with three simple APIs. These are enough for a b
 - POST `/notifications` creates a new notification.
 - POST `/notifications/read` marks one notification, or all notifications, as read.
 
-For `POST /notifications/read`, passing an `id` marks that single notification as read. If no `id` is passed, the backend can mark all notifications as read.
+For `POST /notifications/read`, passing an `id` marks that single notification as read. If no `id` is passed, the backend treats it as an intentional "mark all as read" action.
 
 Example request:
 

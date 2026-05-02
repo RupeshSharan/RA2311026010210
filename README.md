@@ -58,25 +58,33 @@ The scheduler still runs without these values because it falls back to sample da
 
 ## Run the Scheduler Module
 
-The scheduler module lives in `vehicle_maintenance_scheduler/src`. From the repo root, run it with:
+The scheduler module lives in `vehicle_maintenance_scheduler/src`. The root start script also runs the scheduler, so the quickest command is:
 
 ```bash
 npm start
 ```
 
-You can also call the scheduler script directly through npm:
+This maps to `node index.js`, which then calls the scheduler module.
+
+To run the scheduler module directly, use the dedicated script from `package.json`:
 
 ```bash
 npm run scheduler
 ```
 
+This maps to `node vehicle_maintenance_scheduler/src/index.js`.
+
 When `VEHICLE_API_URL` is configured, the scheduler tries to use live data. If the API is missing or fails, it uses local fallback data and continues normally.
 
 ## Run the Notification Backend
 
+The notification backend has its own script:
+
 ```bash
 npm run notification
 ```
+
+This maps to `node notification_app_be/src/index.js`.
 
 Available endpoints:
 
