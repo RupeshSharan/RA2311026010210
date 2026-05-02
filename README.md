@@ -118,15 +118,55 @@ Import both files into Postman, select the `RA2311026010210 Local` environment, 
 npm run notification
 ```
 
-Recommended screenshot order:
+Recommended testing order in Postman:
 
-1. `Health Check`
-2. `Fetch Notifications`
-3. `Create Notification`
-4. `Mark One Notification As Read`
-5. `Mark All Notifications As Read`
+1. `Fetch Notifications`
+2. `Create Notification`
+3. `Mark One Notification As Read`
+4. `Mark All Notifications As Read`
+5. `Fetch Notifications` again to verify the update
+6. Any extra successful test as a bonus proof
 
 The `Create Notification` request saves the created notification ID into the environment, so `Mark One Notification As Read` can use it automatically.
+
+For final submission proof, save the Postman screenshots in `notification_app_be/screenshots` using this order:
+
+```text
+01_get_notifications.png
+02_create_notification.png
+03_mark_single_read.png
+04_mark_all_read.png
+05_mark_read_response_list.png
+06_additional_read_test.png
+```
+
+This keeps the API proof easy to review and matches the natural testing flow.
+
+## API Testing Screenshots
+
+### 1. Get Notifications
+
+![Get Notifications](notification_app_be/screenshots/01_get_notifications.png)
+
+### 2. Create Notification
+
+![Create Notification](notification_app_be/screenshots/02_create_notification.png)
+
+### 3. Mark Single Notification As Read
+
+![Mark Single Notification As Read](notification_app_be/screenshots/03_mark_single_read.png)
+
+### 4. Mark All Notifications As Read
+
+![Mark All Notifications As Read](notification_app_be/screenshots/04_mark_all_read.png)
+
+### 5. Mark Read Response List
+
+![Mark Read Response List](notification_app_be/screenshots/05_mark_read_response_list.png)
+
+### 6. Additional Read Test
+
+![Additional Read Test](notification_app_be/screenshots/06_additional_read_test.png)
 
 ## Logging Middleware
 

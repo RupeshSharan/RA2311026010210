@@ -17,27 +17,20 @@ Then open Postman and import:
 
 Select the `RA2311026010210 Local` environment before sending requests.
 
-## Screenshots To Capture
+## Final Screenshots To Capture
 
-### 1. Health Check
+Save the screenshots inside `notification_app_be/screenshots` with these names:
 
-Request:
-
-```http
-GET http://localhost:3000/
+```text
+01_get_notifications.png
+02_create_notification.png
+03_mark_single_read.png
+04_mark_all_read.png
+05_mark_read_response_list.png
+06_additional_read_test.png
 ```
 
-Expected response:
-
-```json
-{
-  "message": "Notification backend is running"
-}
-```
-
-This proves the backend server is active.
-
-### 2. Fetch Notifications
+### 1. Get Notifications
 
 Request:
 
@@ -55,7 +48,9 @@ Expected response includes:
 
 or an array with sample notifications.
 
-### 3. Create Notification
+Save as `01_get_notifications.png`.
+
+### 2. Create Notification
 
 Request:
 
@@ -90,7 +85,9 @@ Expected response:
 
 This proves the backend can create a notification.
 
-### 4. Mark One Notification As Read
+Save as `02_create_notification.png`.
+
+### 3. Mark One Notification As Read
 
 Request:
 
@@ -119,7 +116,9 @@ Expected response:
 
 This proves one selected notification can be updated.
 
-### 5. Mark All Notifications As Read
+Save as `03_mark_single_read.png`.
+
+### 4. Mark All Notifications As Read
 
 Request:
 
@@ -143,6 +142,44 @@ Expected response:
 ```
 
 This proves the backend supports an intentional mark-all-as-read action.
+
+Save as `04_mark_all_read.png`.
+
+### 5. Mark Read Response List
+
+Request:
+
+```http
+POST http://localhost:3000/notifications/read
+```
+
+Expected response should show a list of updated notifications with `isRead: true`.
+
+Save as `05_mark_read_response_list.png`.
+
+### 6. Additional Test
+
+Use one extra successful read-update request as bonus proof.
+
+Save as `06_additional_read_test.png`.
+
+## Optional Health Check
+
+The collection also includes:
+
+```http
+GET http://localhost:3000/
+```
+
+Expected response:
+
+```json
+{
+  "message": "Notification backend is running"
+}
+```
+
+This is useful while testing, but the final six screenshots can focus on the notification API flow.
 
 ## Screenshot Tips
 
