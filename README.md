@@ -56,13 +56,15 @@ VEHICLE_API_URL=your_vehicle_api_here
 
 The scheduler still runs without these values because it falls back to sample data. That makes the project easy to test during evaluation.
 
-## Run the Scheduler
+## Run the Scheduler Module
+
+The scheduler module lives in `vehicle_maintenance_scheduler/src`. From the repo root, run it with:
 
 ```bash
 npm start
 ```
 
-or:
+You can also call the scheduler script directly through npm:
 
 ```bash
 npm run scheduler
