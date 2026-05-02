@@ -97,6 +97,8 @@ A queue system like RabbitMQ or Kafka helps with:
 - Failure recovery.
 - Better scalability.
 
+Idempotency should also be used so the same notification is not sent twice if a retry happens after a temporary failure.
+
 ## Stage 6: Priority Inbox
 
 Not all notifications are equally urgent. A priority inbox can rank messages like this:
