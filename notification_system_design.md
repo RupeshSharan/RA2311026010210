@@ -8,6 +8,35 @@ The notification service starts with three simple APIs. These are enough for a b
 - POST `/notifications` creates a new notification.
 - POST `/notifications/read` marks one notification, or all notifications, as read.
 
+Example request:
+
+```http
+POST /notifications
+Content-Type: application/json
+
+{
+  "studentId": 1042,
+  "type": "Placement",
+  "message": "Placement registration opens today."
+}
+```
+
+Example response:
+
+```json
+{
+  "message": "Notification created",
+  "notification": {
+    "id": "101",
+    "studentId": 1042,
+    "type": "Placement",
+    "message": "Placement registration opens today.",
+    "isRead": false,
+    "createdAt": "2026-05-02T10:00:00.000Z"
+  }
+}
+```
+
 For real-time delivery, WebSocket or Server-Sent Events can be added later. I would choose WebSocket if the app needs two-way communication, and Server-Sent Events if the server only needs to push updates to the client.
 
 ## Stage 2: Database Design
