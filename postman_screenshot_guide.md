@@ -26,8 +26,8 @@ Save the screenshots inside `notification_app_be/screenshots` with these names:
 02_create_notification.png
 03_mark_single_read.png
 04_mark_all_read.png
-05_mark_read_response_list.png
-06_additional_read_test.png
+05_verify_notifications_after_read.png
+06_extra_test_case.png
 ```
 
 ### 1. Get Notifications
@@ -145,7 +145,7 @@ This proves the backend supports an intentional mark-all-as-read action.
 
 Save as `04_mark_all_read.png`.
 
-### 5. Mark Read Response List
+### 5. Verify Notifications After Read
 
 Request:
 
@@ -153,15 +153,15 @@ Request:
 POST http://localhost:3000/notifications/read
 ```
 
-Expected response should show a list of updated notifications with `isRead: true`.
+Expected response should show updated notifications with `isRead: true`.
 
-Save as `05_mark_read_response_list.png`.
+Save as `05_verify_notifications_after_read.png`.
 
-### 6. Additional Test
+### 6. Extra Test Case
 
 Use one extra successful read-update request as bonus proof.
 
-Save as `06_additional_read_test.png`.
+Save as `06_extra_test_case.png`.
 
 ## Optional Health Check
 

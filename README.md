@@ -11,6 +11,13 @@ The repo is submission-ready even without private keys because it uses `.env.exa
 3. `notification_app_be` provides a clean Express backend skeleton for notification APIs.
 4. `notification_system_design.md` explains how the notification system can scale.
 
+## Highlights
+
+- Modular architecture with separate middleware, scheduler, and backend modules.
+- Knapsack-based optimization for vehicle maintenance scheduling.
+- Environment-based configuration through `.env.example`.
+- API testing proof with a Postman collection and screenshots.
+
 ## Repository Structure
 
 ```text
@@ -27,11 +34,21 @@ RA2311026010210/
 |       |-- knapsack.js
 |       `-- scheduler.js
 |-- notification_app_be/
-|   `-- src/
-|       |-- controllers/
-|       |-- routes/
-|       |-- services/
-|       `-- index.js
+|   |-- src/
+|   |   |-- controllers/
+|   |   |-- routes/
+|   |   |-- services/
+|   |   `-- index.js
+|   `-- screenshots/
+|       |-- 01_get_notifications.png
+|       |-- 02_create_notification.png
+|       |-- 03_mark_single_read.png
+|       |-- 04_mark_all_read.png
+|       |-- 05_verify_notifications_after_read.png
+|       `-- 06_extra_test_case.png
+|-- postman/
+|   |-- RA2311026010210.postman_collection.json
+|   `-- local.postman_environment.json
 |-- notification_system_design.md
 |-- package.json
 |-- .env.example
@@ -105,7 +122,14 @@ Available endpoints:
 
 For a production version, basic validation and error handling can be added in the controllers so invalid requests return clear responses.
 
-## Postman Testing
+## API Testing
+
+All notification API endpoints were tested using Postman.
+
+- Postman collection is available in `postman`.
+- Testing screenshots are available in `notification_app_be/screenshots`.
+
+### Postman Setup
 
 Postman files are included in the `postman` folder:
 
@@ -124,20 +148,20 @@ Recommended testing order in Postman:
 2. `Create Notification`
 3. `Mark One Notification As Read`
 4. `Mark All Notifications As Read`
-5. `Fetch Notifications` again to verify the update
+5. `Verify Notifications After Read`
 6. Any extra successful test as a bonus proof
 
 The `Create Notification` request saves the created notification ID into the environment, so `Mark One Notification As Read` can use it automatically.
 
-For final submission proof, save the Postman screenshots in `notification_app_be/screenshots` using this order:
+For final submission proof, the Postman screenshots are saved in `notification_app_be/screenshots` using this order:
 
 ```text
 01_get_notifications.png
 02_create_notification.png
 03_mark_single_read.png
 04_mark_all_read.png
-05_mark_read_response_list.png
-06_additional_read_test.png
+05_verify_notifications_after_read.png
+06_extra_test_case.png
 ```
 
 This keeps the API proof easy to review and matches the natural testing flow.
@@ -160,13 +184,13 @@ This keeps the API proof easy to review and matches the natural testing flow.
 
 ![Mark All Notifications As Read](notification_app_be/screenshots/04_mark_all_read.png)
 
-### 5. Mark Read Response List
+### 5. Verify Notifications After Read
 
-![Mark Read Response List](notification_app_be/screenshots/05_mark_read_response_list.png)
+![Verify Notifications After Read](notification_app_be/screenshots/05_verify_notifications_after_read.png)
 
-### 6. Additional Read Test
+### 6. Extra Test Case
 
-![Additional Read Test](notification_app_be/screenshots/06_additional_read_test.png)
+![Extra Test Case](notification_app_be/screenshots/06_extra_test_case.png)
 
 ## Logging Middleware
 
